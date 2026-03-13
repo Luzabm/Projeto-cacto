@@ -191,6 +191,14 @@
   cursor: pointer;
 }
 
+.redes a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  margin-left: 15px;
+  display: inline-block;
+}
+
 .cart-modal {
   position: fixed;
   top: 0;
