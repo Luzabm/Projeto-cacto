@@ -1,5 +1,6 @@
 .body {
   margin: 0;
+  background: linear-gradient(#f8f9ff, #eef1ff);
 }
 
 .header {
@@ -84,18 +85,56 @@
 }
 
 .historia {
-  padding: 40px;
-  background: linear-gradient(rgba(148, 150, 155, 0.6)),
-  url('../images/galerinha1.jpeg') center/cover no-repeat;
-  color: #000;
-  text-align: center;
-  min-height: 300px;
-  object-fit: contain;
-  background-position: 0 -244px;
+  padding: 80px 40px;
 }
 
-.historia h2 {
-  color: #000000;
+.historia-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.historia-img {
+  flex: 1;
+  height: 380px;
+  background: url('../images/galerinha1.jpeg') center/cover no-repeat;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+.historia-content {
+  flex: 1;
+}
+
+.historia-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #6495ed;
+}
+
+.historia-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.btn-historia {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #6495ed;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-historia:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
 
 .destaques {
