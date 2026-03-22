@@ -22,10 +22,47 @@
       </div>
 
         <div class="profile-fixed">
-          <div id="userContent" class="profile-box"></div>
+          <div id="perfilBox" class="profile-box"></div>
+          <div id="pedidosBox" class="profile-box" style="display:none;"></div>
         </div>
       </div>
     </div>
+
+    <template id="pedidoTemplate">
+      <div class="pedido-card">
+        <div class="pedido-header">
+          <div>
+            <span class="pedido-id"></span>
+            <span class="pedido-data"></span>
+          </div>
+          <div class="pedido-right">
+            <span class="pedido-status"></span>
+            <span class="pedido-total"></span>
+            <span class="pedido-toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+          <div class="pedido-progress">
+            <div class="step step-processando">
+              <div class="dot"></div>
+              <span>Processando</span>
+            </div>
+            <div class="line"></div>
+            <div class="step step-enviado">
+              <div class="dot"></div>
+              <span>Enviado</span>
+            </div>
+            <div class="line"></div>
+            <div class="step step-entregue">
+              <div class="dot"></div>
+              <span>Entregue</span>
+            </div>
+          </div>
+        <div class="pedido-produtos">
+        </div>
+      </div>
+    </template>
 
     <script src="./js/usuario.js"></script>
   </body>
