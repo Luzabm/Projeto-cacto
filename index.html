@@ -88,7 +88,7 @@
             <h2 class="product-name">Bolsa</h2>
             <p class="preco product-price">R$ 19,90</p>
 
-            <button class="btn-comprar" onclick="abrirCarrinho()">
+            <button class="btn-comprar">
               <i class="fa-solid fa-cart-shopping"></i>
               Adicionar ao carrinho
             </button>
@@ -101,7 +101,20 @@
             <h2 class="product-name">Bolsa</h2>
             <p class="preco product-price">R$ 19,90</p>
 
-            <button class="btn-comprar" onclick="abrirCarrinho()">
+            <button class="btn-comprar">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/produto.png" />
+
+          <div class="subscription">
+            <h2 class="product-name">Bolsa</h2>
+            <p class="preco product-price">R$ 19,90</p>
+
+            <button class="btn-comprar">
               <i class="fa-solid fa-cart-shopping"></i>
               Adicionar ao carrinho
             </button>
@@ -114,7 +127,7 @@
             <h2 class="product-name">Bolsa</h2>
             <p class="preco product-price">R$ 19,90</p>
 
-            <button class="btn-comprar" onclick="abrirCarrinho()">
+            <button class="btn-comprar">
               <i class="fa-solid fa-cart-shopping"></i>
               Adicionar ao carrinho
             </button>
@@ -122,6 +135,23 @@
         </div>
       </div>
     </div>
+
+    <template id="cartItemTemplate">
+      <div class="cart-item">
+        <div class="cart-info">
+          <span class="cart-name"></span>
+        </div>
+        <div class="cart-right">
+          <button class="remove-item">✕</button>
+          <span class="cart-price"></span>
+          <div class="cart-qty">
+            <button class="menos">-</button>
+            <span class="cart-qty-number"></span>
+            <button class="mais">+</button>
+          </div>
+        </div>  
+      </div>
+    </template>
 
     <div class="cart-modal" id="cartModal">
       <div class="cart-content">
