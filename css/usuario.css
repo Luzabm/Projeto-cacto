@@ -97,3 +97,78 @@
   gap: 8px;
   font-size: 16px;
 }
+
+.pedido-card{
+  background:white;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  cursor:pointer;
+}
+
+.pedido-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.pedido-produtos{
+  max-height:0;
+  overflow:hidden;
+  transition:all .35s ease;
+  margin-top:10px;
+}
+
+.pedido-card.open .pedido-produtos{
+  max-height:500px;
+}
+
+.produto-linha{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  border-bottom:1px solid #eee;
+}
+
+.pedido-progress{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:12px;
+  margin-bottom:10px;
+}
+
+.step{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  color:#aaa;
+}
+
+.dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#ddd;
+  margin-bottom:4px;
+}
+
+.line{
+  flex:1;
+  height:2px;
+  background:#ddd;
+}
+
+.step.active{
+  color:#ff6600;
+}
+
+.step.active .dot{
+  background:#ff6600;
+}
+
+.line.active{
+  background:#ff6600;
+}
