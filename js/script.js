@@ -17,14 +17,16 @@ const totalDisplay = document.getElementById("cart-total");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    console.log("clicou");
+  
     const card = btn.closest(".card");
-
+  
     const name = card.querySelector(".product-name").textContent;
     const priceText = card.querySelector(".product-price").textContent;
     const price = Number(priceText.replace("R$", "").replace(",", "."));
-
+  
     const existente = cart.find((p) => p.name === name);
-
+  
     if (existente) {
       existente.qty++;
     } else {
@@ -35,11 +37,9 @@ buttons.forEach((btn) => {
         qty: 1,
       });
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
+  
     renderCarrinho();
-    mostrarToast(name);
+  
     abrirCarrinho();
   });
 });
@@ -134,7 +134,9 @@ function finalizarCompra() {
 }
 
 function abrirCarrinho() {
-  document.getElementById("cartModal").style.display = "flex";
+  const modal = document.getElementById("cartModal");
+  console.log("Modal:", modal);
+  modal.style.display = "flex";
 }
 
 function fecharCarrinho() {
