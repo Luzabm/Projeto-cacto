@@ -17,26 +17,9 @@ const totalDisplay = document.getElementById("cart-total");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log("clicou");
-  
-    const card = btn.closest(".card");
-  
-    const name = card.querySelector(".product-name").textContent;
-    const priceText = card.querySelector(".product-price").textContent;
-    const price = Number(priceText.replace("R$", "").replace(",", "."));
-  
-    const existente = cart.find((p) => p.name === name);
-  
-    if (existente) {
-      existente.qty++;
-    } else {
-      cart.push({
-        name,
-        price,
-        priceText,
-        qty: 1,
-      });
-    }
+    console.log("BOTÃO FUNCIONOU");
+
+    abrirCarrinho();
   
     renderCarrinho();
   
