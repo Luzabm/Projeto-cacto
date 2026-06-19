@@ -142,8 +142,6 @@ function finalizarCompra() {
     cart = [];
     localStorage.removeItem("cart");
 
-    alert("Compra realizada com sucesso 🎉");
-
     location.reload();
   }, 1500);
 }
