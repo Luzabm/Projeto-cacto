@@ -17,13 +17,45 @@ const totalDisplay = document.getElementById("cart-total");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log("BOTÃO FUNCIONOU");
+    console.log("Início do clique");
 
-    abrirCarrinho();
-  
-    renderCarrinho();
-  
-    abrirCarrinho();
+    try {
+      const card = btn.closest(".card");
+
+      const name = card.querySelector(".product-name").textContent;
+      const priceText = card.querySelector(".product-price").textContent;
+      const price = Number(
+        priceText.replace("R$", "").replace(",", ".")
+      );
+
+      console.log(name, priceText, price);
+
+      const existente = cart.find((p) => p.name === name);
+
+      if (existente) {
+        existente.qty++;
+      } else {
+        cart.push({
+          name,
+          price,
+          priceText,
+          qty: 1,
+        });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      renderCarrinho();
+
+      console.log("Antes de abrir");
+
+      abrirCarrinho();
+
+      console.log("Depois de abrir");
+
+    } catch (erro) {
+      console.error("ERRO:", erro);
+    }
   });
 });
 
