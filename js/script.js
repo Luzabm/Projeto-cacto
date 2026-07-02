@@ -17,45 +17,30 @@ const totalDisplay = document.getElementById("cart-total");
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log("Início do clique");
+    const card = btn.closest(".card");
 
-    try {
-      const card = btn.closest(".card");
+    const name = card.querySelector(".product-name").textContent;
+    const priceText = card.querySelector(".product-price").textContent;
+    const price = Number(priceText.replace("R$", "").replace(",", "."));
 
-      const name = card.querySelector(".product-name").textContent;
-      const priceText = card.querySelector(".product-price").textContent;
-      const price = Number(
-        priceText.replace("R$", "").replace(",", ".")
-      );
+    const existente = cart.find((p) => p.name === name);
 
-      console.log(name, priceText, price);
-
-      const existente = cart.find((p) => p.name === name);
-
-      if (existente) {
-        existente.qty++;
-      } else {
-        cart.push({
-          name,
-          price,
-          priceText,
-          qty: 1,
-        });
-      }
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      renderCarrinho();
-
-      console.log("Antes de abrir");
-
-      abrirCarrinho();
-
-      console.log("Depois de abrir");
-
-    } catch (erro) {
-      console.error("ERRO:", erro);
+    if (existente) {
+      existente.qty++;
+    } else {
+      cart.push({
+        name,
+        price,
+        priceText,
+        qty: 1,
+      });
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    renderCarrinho();
+    mostrarToast(name);
+    abrirCarrinho();
   });
 });
 
@@ -142,14 +127,14 @@ function finalizarCompra() {
     cart = [];
     localStorage.removeItem("cart");
 
+    alert("Compra realizada com sucesso 🎉");
+
     location.reload();
   }, 1500);
 }
 
 function abrirCarrinho() {
-  const modal = document.getElementById("cartModal");
-  console.log("Modal:", modal);
-  modal.style.display = "flex";
+  document.getElementById("cartModal").style.display = "flex";
 }
 
 function fecharCarrinho() {
@@ -283,4 +268,8 @@ function atualizarStatusPedidos(pedidos) {
     }
   });
   localStorage.setItem("pedidos", JSON.stringify(pedidos));
+}
+
+function abrirHistoria(){
+  window.location.href = "historia.html";
 }
